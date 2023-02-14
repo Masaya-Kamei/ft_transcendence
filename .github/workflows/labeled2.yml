@@ -13,6 +13,8 @@ jobs:
       - name: hellohellohello
         run: echo HelloHelloHello
       - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
       - name: echo dummy
         run:  cat dummy.txt
       - name: git log
