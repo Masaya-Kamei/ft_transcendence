@@ -1,6 +1,6 @@
 import { useGetApiOmitUndefined } from '../generics/useGetApi';
 
-export type FriendRelation = 'NONE' | 'ACCEPTED' | 'PENDING' | 'RECOGNITION';
+export type FriendRelation = 'NONE' | 'ACCEPTED' | 'REQUESTING' | 'PENDING';
 
 export const useFriendRelation = (
   targetId: string

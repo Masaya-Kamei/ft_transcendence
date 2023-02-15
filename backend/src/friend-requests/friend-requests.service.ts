@@ -253,9 +253,9 @@ export class FriendRequestsService {
         friendRelation = 'ACCEPTED';
       } else {
         if (ret[0].creatorId === meId) {
-          friendRelation = 'PENDING';
+          friendRelation = 'REQUESTING';
         } else {
-          friendRelation = 'RECOGNITION';
+          friendRelation = 'PENDING';
         }
       }
     }

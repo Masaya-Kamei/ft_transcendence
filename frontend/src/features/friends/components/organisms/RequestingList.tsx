@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import { Grid } from '@chakra-ui/react';
-import { useIncomingUsers } from 'hooks/api';
-import { AcceptAndRejectButton } from 'components/molecules/AcceptAndRejectButton';
+import { useOutGoingUsers } from 'hooks/api';
+import { CancelButton } from 'components/atoms/button/CancelButton';
 import { UserCard } from 'features/friends/components/molecules/UserCard';
 
-export const RecognitionList: FC = () => {
-  const { users } = useIncomingUsers();
+export const RequestingList: FC = () => {
+  const { users } = useOutGoingUsers();
 
   if (users === undefined) return <></>;
 
@@ -16,7 +16,7 @@ export const RecognitionList: FC = () => {
         lg: 'repeat(2, 1fr)',
       }}
       gap={6}
-      data-test="users-recognition-grid"
+      data-test="users-requesting-grid"
     >
       {users.map((user) => (
         <UserCard
@@ -25,7 +25,7 @@ export const RecognitionList: FC = () => {
           username={user.name}
           nickname={user.nickname}
           avatarImageUrl={user.avatarImageUrl}
-          buttons={<AcceptAndRejectButton targetId={user.id} />}
+          buttons={<CancelButton targetId={user.id} />}
           isFriend={false}
         />
       ))}

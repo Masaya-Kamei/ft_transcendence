@@ -1,7 +1,7 @@
 export enum UsersTab {
   FRIENDS,
+  REQUESTING,
   PENDING,
-  RECOGNITION,
   BLOCKED,
   ADD_FRIEND,
 }
@@ -17,8 +17,8 @@ export type RelationChangeButton =
 export const getUsersDataTest = (tab: UsersTab): string => {
   const usersTabDataTest: string[] = [
     'friends',
+    'requesting',
     'pending',
-    'recognition',
     'blocked',
     'add-friend',
   ];

@@ -5,20 +5,20 @@ import { ContentLayout } from 'components/ecosystems/ContentLayout';
 import { BlockedList } from 'features/friends/components/organisms/BlockedList';
 import { FriendsList } from 'features/friends/components/organisms/FriendsList';
 import { PendingList } from 'features/friends/components/organisms/PendingList';
-import { RecognitionList } from 'features/friends/components/organisms/RecognitionList';
 import { RequestableUsersList } from 'features/friends/components/organisms/RequestableUsersList';
+import { RequestingList } from 'features/friends/components/organisms/RequestingList';
 
 const tabs = [
   'Friends',
+  'Requesting',
   'Pending',
-  'Recognition',
   'MessageBlocked',
   'AddFriend',
 ];
 const dataTestList = [
   'users-friends-tab',
+  'users-requesting-tab',
   'users-pending-tab',
-  'users-recognition-tab',
   'users-blocked-tab',
   'users-add-friend-tab',
 ];
@@ -40,10 +40,10 @@ export const Users: FC = memo(() => {
               <FriendsList />
             </TabPanel>
             <TabPanel>
-              <PendingList />
+              <RequestingList />
             </TabPanel>
             <TabPanel>
-              <RecognitionList />
+              <PendingList />
             </TabPanel>
             <TabPanel>
               <BlockedList />

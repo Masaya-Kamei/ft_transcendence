@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import { Grid } from '@chakra-ui/react';
-import { useOutGoingUsers } from 'hooks/api';
-import { CancelButton } from 'components/atoms/button/CancelButton';
+import { useIncomingUsers } from 'hooks/api';
+import { AcceptAndRejectButton } from 'components/molecules/AcceptAndRejectButton';
 import { UserCard } from 'features/friends/components/molecules/UserCard';
 
 export const PendingList: FC = () => {
-  const { users } = useOutGoingUsers();
+  const { users } = useIncomingUsers();
 
   if (users === undefined) return <></>;
 
@@ -25,7 +25,7 @@ export const PendingList: FC = () => {
           username={user.name}
           nickname={user.nickname}
           avatarImageUrl={user.avatarImageUrl}
-          buttons={<CancelButton targetId={user.id} />}
+          buttons={<AcceptAndRejectButton targetId={user.id} />}
           isFriend={false}
         />
       ))}
