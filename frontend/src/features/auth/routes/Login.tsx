@@ -17,6 +17,7 @@ export const Login: FC = memo(() => {
           <DummyAuthButton dummyId="dummy001" />
           <DummyAuthButton dummyId="dummy002" />
           <DummyAuthButton dummyId="dummy003" />
+          <DummyAuthButton dummyId="dummy004" />
         </Stack>
       </Box>
     </Flex>
