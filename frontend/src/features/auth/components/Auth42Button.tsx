@@ -19,7 +19,7 @@ export const Auth42Button: FC = memo(() => {
       as="a"
       href={`${API_URL}/auth/login/42`}
     >
-      42 Auth
+      42 Login
     </Button>
   );
 });
