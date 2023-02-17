@@ -143,7 +143,7 @@ describe('Profile', function () {
    * シナリオ Profile-5
    * Add Friendタブの中から一人選び、プロフィールへ移動。
    * プロフィールページでRequestボタンをクリック。
-   * Pendingタブに存在することを確認。
+   * Requestingタブに存在することを確認。
    *
    * チェック項目No.21,78
    */
@@ -153,21 +153,21 @@ describe('Profile', function () {
     visitProfileFromUsersTab(UsersTab.ADD_FRIEND, targetNickname);
     cy.getBySel('request-button').should('be.visible').click();
     cy.getBySel('cancel-button').should('be.visible');
-    assertUserIsInUsersTab(UsersTab.PENDING, targetNickname);
+    assertUserIsInUsersTab(UsersTab.REQUESTING, targetNickname);
   });
 
   /**
    * シナリオ Profile-6
-   * Pendingタブの中から一人選び、プロフィールへ移動。
+   * Requestingタブの中から一人選び、プロフィールへ移動。
    * プロフィールページでCancelボタンをクリック。
    * Add Friendタブに存在することを確認。
    *
    * チェック項目No.21,78
    */
   it('フレンド申請を取り消すことができる', () => {
-    const targetNickname = 'n-pending001';
+    const targetNickname = 'n-requesting001';
 
-    visitProfileFromUsersTab(UsersTab.PENDING, targetNickname);
+    visitProfileFromUsersTab(UsersTab.REQUESTING, targetNickname);
     cy.getBySel('cancel-button').should('be.visible').click();
     cy.getBySel('request-button').should('be.visible');
     assertUserIsInUsersTab(UsersTab.ADD_FRIEND, targetNickname);
@@ -175,16 +175,16 @@ describe('Profile', function () {
 
   /**
    * シナリオ Profile-7
-   * Recognitionタブの中から一人選び、プロフィールへ移動。
+   * Pendingタブの中から一人選び、プロフィールへ移動。
    * プロフィールページでAcceptボタンをクリック。
    * Friendsタブに存在することを確認。
    *
    * チェック項目No.21,78
    */
   it('フレンド申請を承認することができる', () => {
-    const targetNickname = 'n-recognition001';
+    const targetNickname = 'n-pending001';
 
-    visitProfileFromUsersTab(UsersTab.RECOGNITION, targetNickname);
+    visitProfileFromUsersTab(UsersTab.PENDING, targetNickname);
     cy.getBySel('accept-button').should('be.visible').click();
     cy.getBySel('profile-user-avatar')
       .children('div.chakra-avatar__badge')
@@ -194,16 +194,16 @@ describe('Profile', function () {
 
   /**
    * シナリオ Profile-8
-   * Recognitionタブの中から一人選び、プロフィールへ移動。
+   * Pendingタブの中から一人選び、プロフィールへ移動。
    * プロフィールページでRejectボタンをクリック。
    * Add Friendタブに存在することを確認。
    *
    * チェック項目No.21,78
    */
   it('フレンド申請を拒否することができる', () => {
-    const targetNickname = 'n-recognition002';
+    const targetNickname = 'n-pending002';
 
-    visitProfileFromUsersTab(UsersTab.RECOGNITION, targetNickname);
+    visitProfileFromUsersTab(UsersTab.PENDING, targetNickname);
     cy.getBySel('reject-button').should('be.visible').click();
     cy.getBySel('request-button').should('be.visible');
     assertUserIsInUsersTab(UsersTab.ADD_FRIEND, targetNickname);
@@ -218,8 +218,8 @@ describe('Profile', function () {
    */
   it('他のユーザーのProfileが表示できる', () => {
     const targetFriendNickname = 'n-friends002';
+    const targetRequestingNickname = 'n-requesting001';
     const targetPendingNickname = 'n-pending001';
-    const targetRecognitionNickname = 'n-recognition001';
     const targetAddFriendNickname = 'n-add-friend001';
 
     // Friendsのプロフィール確認。
@@ -230,17 +230,17 @@ describe('Profile', function () {
     cy.getBySel('reject-button').should('not.exist');
     cy.getBySel('request-button').should('not.exist');
 
-    // Pendingのプロフィール確認。
-    visitProfileFromUsersTab(UsersTab.PENDING, targetPendingNickname);
-    validateProfile(targetPendingNickname);
+    // Requestingのプロフィール確認。
+    visitProfileFromUsersTab(UsersTab.REQUESTING, targetRequestingNickname);
+    validateProfile(targetRequestingNickname);
     cy.getBySel('cancel-button').should('be.visible');
     cy.getBySel('accept-button').should('not.exist');
     cy.getBySel('reject-button').should('not.exist');
     cy.getBySel('request-button').should('not.exist');
 
-    // Recognitionのプロフィール確認。
-    visitProfileFromUsersTab(UsersTab.RECOGNITION, targetRecognitionNickname);
-    validateProfile(targetRecognitionNickname);
+    // Pendingのプロフィール確認。
+    visitProfileFromUsersTab(UsersTab.PENDING, targetPendingNickname);
+    validateProfile(targetPendingNickname);
     cy.getBySel('accept-button').should('be.visible');
     cy.getBySel('reject-button').should('be.visible');
     cy.getBySel('cancel-button').should('not.exist');

@@ -70,7 +70,7 @@ describe('Users', function () {
   /**
    * シナリオ Users-4
    * Add Friendタブの中から一人選び、Requestボタンをクリック。
-   * Pendingタブに存在することを確認。
+   * Requestingタブに存在することを確認。
    *
    * チェック項目No.21,78
    */
@@ -79,51 +79,51 @@ describe('Users', function () {
 
     visitUsersTab(UsersTab.ADD_FRIEND);
     changeRelation(UsersTab.ADD_FRIEND, 'request-button', targetNickname);
-    assertUserIsInUsersTab(UsersTab.PENDING, targetNickname);
+    assertUserIsInUsersTab(UsersTab.REQUESTING, targetNickname);
   });
 
   /**
    * シナリオ Users-5
-   * Pendingタブの中から一人選び、Cancelボタンをクリック。
+   * Requestingタブの中から一人選び、Cancelボタンをクリック。
    * Add Friendタブに存在することを確認。
    *
    * チェック項目No.21,78
    */
   it('フレンド申請を取り消すことができる', () => {
-    const targetNickname = 'n-pending001';
+    const targetNickname = 'n-requesting001';
 
-    visitUsersTab(UsersTab.PENDING);
-    changeRelation(UsersTab.PENDING, 'cancel-button', targetNickname);
+    visitUsersTab(UsersTab.REQUESTING);
+    changeRelation(UsersTab.REQUESTING, 'cancel-button', targetNickname);
     assertUserIsInUsersTab(UsersTab.ADD_FRIEND, targetNickname);
   });
 
   /**
    * シナリオ Users-6
-   * Recognitionタブの中から一人選び、Acceptボタンをクリック。
+   * Pendingタブの中から一人選び、Acceptボタンをクリック。
    * Friendsタブに存在することを確認。
    *
    * チェック項目No.21,78
    */
   it('フレンド申請を承認することができる', () => {
-    const targetNickname = 'n-recognition001';
+    const targetNickname = 'n-pending001';
 
-    visitUsersTab(UsersTab.RECOGNITION);
-    changeRelation(UsersTab.RECOGNITION, 'accept-button', targetNickname);
+    visitUsersTab(UsersTab.PENDING);
+    changeRelation(UsersTab.PENDING, 'accept-button', targetNickname);
     assertUserIsInUsersTab(UsersTab.FRIENDS, targetNickname);
   });
 
   /**
    * シナリオ Users-7
-   * Recognitionタブの中から一人選び、Rejectボタンをクリック。
+   * Pendingタブの中から一人選び、Rejectボタンをクリック。
    * Add Friendタブに存在することを確認。
    *
    * チェック項目No.21,78
    */
   it('フレンド申請を拒否することができる', () => {
-    const targetNickname = 'n-recognition002';
+    const targetNickname = 'n-pending002';
 
-    visitUsersTab(UsersTab.RECOGNITION);
-    changeRelation(UsersTab.RECOGNITION, 'reject-button', targetNickname);
+    visitUsersTab(UsersTab.PENDING);
+    changeRelation(UsersTab.PENDING, 'reject-button', targetNickname);
     assertUserIsInUsersTab(UsersTab.ADD_FRIEND, targetNickname);
   });
 });

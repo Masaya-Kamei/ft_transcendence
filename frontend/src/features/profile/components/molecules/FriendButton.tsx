@@ -18,7 +18,7 @@ export const FriendButton: FC<Props> = memo((props) => {
         <RequestButton targetId={targetId} />
       ) : friendRelation === 'ACCEPTED' ? (
         <></>
-      ) : friendRelation === 'PENDING' ? (
+      ) : friendRelation === 'REQUESTING' ? (
         <CancelButton targetId={targetId} />
       ) : (
         <AcceptAndRejectButton targetId={targetId} />

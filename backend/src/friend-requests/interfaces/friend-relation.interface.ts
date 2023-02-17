@@ -1,1 +1,1 @@
-export type FriendRelation = 'NONE' | 'ACCEPTED' | 'PENDING' | 'RECOGNITION';
+export type FriendRelation = 'NONE' | 'ACCEPTED' | 'REQUESTING' | 'PENDING';

@@ -16,8 +16,8 @@ const num = (n: number) => `${n.toString().padStart(3, '0')}`;
  * key  :
  *        dummy001~3
  *        friends001~10
+ *        requesting001~10
  *        pending001~10
- *        recognition001~10
  *        blocked001~10
  *        add-friend001~10
  * value: uuid
@@ -28,8 +28,8 @@ for (let i = 1; i <= 3; i++) {
 }
 for (let i = 1; i <= 10; i++) {
   idMap.set('friends' + num(i), uuidv4());
+  idMap.set('requesting' + num(i), uuidv4());
   idMap.set('pending' + num(i), uuidv4());
-  idMap.set('recognition' + num(i), uuidv4());
   idMap.set('blocked' + num(i), uuidv4());
   idMap.set('add-friend' + num(i), uuidv4());
 }
@@ -96,12 +96,12 @@ for (let i = 2; i < 4; i++) {
 }
 
 /**
- * dummy001がcreatorとなって、pending001~10に
+ * dummy001がcreatorとなって、requesting001~10に
  * friend requestを作成する。ステータスはPENDING
  */
 for (let i = 1; i <= 10; i++) {
   const creatorId = idMap.get('dummy001');
-  const receiverId = idMap.get('pending' + num(i));
+  const receiverId = idMap.get('requesting' + num(i));
   if (creatorId !== undefined && receiverId !== undefined) {
     friendRequestData.push({
       creatorId,
@@ -150,11 +150,11 @@ for (let i = 6; i <= 10; i++) {
 }
 
 /**
- * recognition001~10がcreatorとなって、dummy001に
+ * pending001~10がcreatorとなって、dummy001に
  * friend requestを作成する。ステータスはPENDING
  */
 for (let i = 1; i <= 10; i++) {
-  const creatorId = idMap.get('recognition' + num(i));
+  const creatorId = idMap.get('pending' + num(i));
   const receiverId = idMap.get('dummy001');
   if (creatorId !== undefined && receiverId !== undefined) {
     friendRequestData.push({
