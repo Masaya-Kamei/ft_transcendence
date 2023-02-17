@@ -9,7 +9,7 @@ env:
   AWS_REGION: "ap-northeast-1"
   ECR_REPOSITORY_BACKEND: "backend"
   ECR_REPOSITORY_FRONTEND: "frontend"
-  ECS_CLUSTER: "transpong"
+  ECS_CLUSTER: "transpong1"
 
 jobs:
   deploy:
