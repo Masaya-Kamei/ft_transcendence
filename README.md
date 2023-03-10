@@ -1,46 +1,28 @@
-### サーバの立ち上げ
-```bash
-yarn dev
-```
-### TypeScriptスタイルガイド
-https://typescript-jp.gitbook.io/deep-dive/styleguide
+# 42 ft_transcendence
 
-### 参考にするべきディレクトリ構成（りあクト③P.81）
-https://github.com/alan2207/bulletproof-react/blob/master/docs/project-structure.md
-- おすすめ構成
-```
-src/
-  components/
-  	atoms/
-    molecules/
-    organisms/
-    ecosystems/
-    templates/
-  	environments/
-	features/
-		awesome-feature/
-      components/
-      hooks/
-      utils/
-      assets/
-  routes/
-  providers/
-  stores/
-  hooks/
-  utils/
-  assets/
-  domains/
-    api/
-    types/
-    awesome-domain/
-      api/
-      types/
-      constants.ts
-		constants.ts
-```
+## 概要
 
-### うまくいっていな部分
-- cssのlint
+オンライン対戦ゲームやチャットができるwebアプリ
 
-### 参考
-- りあクト！ 1章、4章、6章
+- デモサイト: https://transpong-42-mk.com <br>
+  (シークレットウィンドウ or 別ブラウザを使うと、複数ユーザーでログイン可能)
+- React + NestJS
+- OAuth2を利用した認証
+- ワンタイムパスワードによる二要素認証
+- websocketを使ってリアルタイム通信
+- オンライン2人対戦ゲームPong
+  - 他のユーザーは観戦できる
+  - マッチングシステム (ランダム, 招待)
+- チャットルーム
+  - パスワード付きの部屋を作れる
+  - メンバーをBan,Muteなどできる
+- DB, API 設計
+  - プロフィール,フレンド,チャット,対戦記録など
+- docker compose CLI を使ってAWS ECS にデプロイ
+- GithubActionsを使ってCI/CD
+- 5人チーム (全員webアプリの開発は初めて)
+
+## キーワード
+
+`TypeScript`,`React`,`NestJS`,`Vite`,`42API`,`REST API`,`JWT`,`Cookie`,`OAuth2`,`2FA`,`CORS`,`File Upload`,`File Stream`,`PostgreSQL`,`Prisma`,`Socket.IO`,`canvas`,`Swagger`,`docker compose`,`nginx`,`CI/CD`,`Github　Actions`,`Jest`,`Cypress`,`AWS ECS`,`AWS ECR`,`AWS Route53`,`ACM`
+     
